@@ -1,14 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'home_state.freezed.dart';
+part 'send_money_state.freezed.dart';
 
 @freezed
-abstract class HomeState with _$HomeState {
-  factory HomeState({
+abstract class SendMoneyState with _$SendMoneyState {
+  factory SendMoneyState({
     @Default(false) bool isLoading,
     @Default(false) bool isFinished,
-    @Default(false) bool hideAmount,
     String? errorText,
     String? successText,
-  }) = _HomeState;
+  }) = _SendMoneyState;
 }

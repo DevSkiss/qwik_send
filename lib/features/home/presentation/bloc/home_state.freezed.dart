@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$HomeState {
 
- bool get isLoading; bool get isFinished; String? get errorText; String? get successText;
+ bool get isLoading; bool get isFinished; bool get hideAmount; String? get errorText; String? get successText;
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $HomeStateCopyWith<HomeState> get copyWith => _$HomeStateCopyWithImpl<HomeState>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isFinished, isFinished) || other.isFinished == isFinished)&&(identical(other.errorText, errorText) || other.errorText == errorText)&&(identical(other.successText, successText) || other.successText == successText));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isFinished, isFinished) || other.isFinished == isFinished)&&(identical(other.hideAmount, hideAmount) || other.hideAmount == hideAmount)&&(identical(other.errorText, errorText) || other.errorText == errorText)&&(identical(other.successText, successText) || other.successText == successText));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,isLoading,isFinished,errorText,successText);
+int get hashCode => Object.hash(runtimeType,isLoading,isFinished,hideAmount,errorText,successText);
 
 @override
 String toString() {
-  return 'HomeState(isLoading: $isLoading, isFinished: $isFinished, errorText: $errorText, successText: $successText)';
+  return 'HomeState(isLoading: $isLoading, isFinished: $isFinished, hideAmount: $hideAmount, errorText: $errorText, successText: $successText)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $HomeStateCopyWith<$Res>  {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) _then) = _$HomeStateCopyWithImpl;
 @useResult
 $Res call({
- bool isLoading, bool isFinished, String? errorText, String? successText
+ bool isLoading, bool isFinished, bool hideAmount, String? errorText, String? successText
 });
 
 
@@ -62,10 +62,11 @@ class _$HomeStateCopyWithImpl<$Res>
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? isLoading = null,Object? isFinished = null,Object? errorText = freezed,Object? successText = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? isLoading = null,Object? isFinished = null,Object? hideAmount = null,Object? errorText = freezed,Object? successText = freezed,}) {
   return _then(_self.copyWith(
 isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
 as bool,isFinished: null == isFinished ? _self.isFinished : isFinished // ignore: cast_nullable_to_non_nullable
+as bool,hideAmount: null == hideAmount ? _self.hideAmount : hideAmount // ignore: cast_nullable_to_non_nullable
 as bool,errorText: freezed == errorText ? _self.errorText : errorText // ignore: cast_nullable_to_non_nullable
 as String?,successText: freezed == successText ? _self.successText : successText // ignore: cast_nullable_to_non_nullable
 as String?,
@@ -153,10 +154,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool isLoading,  bool isFinished,  String? errorText,  String? successText)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool isLoading,  bool isFinished,  bool hideAmount,  String? errorText,  String? successText)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _HomeState() when $default != null:
-return $default(_that.isLoading,_that.isFinished,_that.errorText,_that.successText);case _:
+return $default(_that.isLoading,_that.isFinished,_that.hideAmount,_that.errorText,_that.successText);case _:
   return orElse();
 
 }
@@ -174,10 +175,10 @@ return $default(_that.isLoading,_that.isFinished,_that.errorText,_that.successTe
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool isLoading,  bool isFinished,  String? errorText,  String? successText)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool isLoading,  bool isFinished,  bool hideAmount,  String? errorText,  String? successText)  $default,) {final _that = this;
 switch (_that) {
 case _HomeState():
-return $default(_that.isLoading,_that.isFinished,_that.errorText,_that.successText);case _:
+return $default(_that.isLoading,_that.isFinished,_that.hideAmount,_that.errorText,_that.successText);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -194,10 +195,10 @@ return $default(_that.isLoading,_that.isFinished,_that.errorText,_that.successTe
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool isLoading,  bool isFinished,  String? errorText,  String? successText)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool isLoading,  bool isFinished,  bool hideAmount,  String? errorText,  String? successText)?  $default,) {final _that = this;
 switch (_that) {
 case _HomeState() when $default != null:
-return $default(_that.isLoading,_that.isFinished,_that.errorText,_that.successText);case _:
+return $default(_that.isLoading,_that.isFinished,_that.hideAmount,_that.errorText,_that.successText);case _:
   return null;
 
 }
@@ -209,11 +210,12 @@ return $default(_that.isLoading,_that.isFinished,_that.errorText,_that.successTe
 
 
 class _HomeState implements HomeState {
-   _HomeState({this.isLoading = false, this.isFinished = false, this.errorText, this.successText});
+   _HomeState({this.isLoading = false, this.isFinished = false, this.hideAmount = false, this.errorText, this.successText});
   
 
 @override@JsonKey() final  bool isLoading;
 @override@JsonKey() final  bool isFinished;
+@override@JsonKey() final  bool hideAmount;
 @override final  String? errorText;
 @override final  String? successText;
 
@@ -227,16 +229,16 @@ _$HomeStateCopyWith<_HomeState> get copyWith => __$HomeStateCopyWithImpl<_HomeSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HomeState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isFinished, isFinished) || other.isFinished == isFinished)&&(identical(other.errorText, errorText) || other.errorText == errorText)&&(identical(other.successText, successText) || other.successText == successText));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HomeState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.isFinished, isFinished) || other.isFinished == isFinished)&&(identical(other.hideAmount, hideAmount) || other.hideAmount == hideAmount)&&(identical(other.errorText, errorText) || other.errorText == errorText)&&(identical(other.successText, successText) || other.successText == successText));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,isLoading,isFinished,errorText,successText);
+int get hashCode => Object.hash(runtimeType,isLoading,isFinished,hideAmount,errorText,successText);
 
 @override
 String toString() {
-  return 'HomeState(isLoading: $isLoading, isFinished: $isFinished, errorText: $errorText, successText: $successText)';
+  return 'HomeState(isLoading: $isLoading, isFinished: $isFinished, hideAmount: $hideAmount, errorText: $errorText, successText: $successText)';
 }
 
 
@@ -247,7 +249,7 @@ abstract mixin class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Re
   factory _$HomeStateCopyWith(_HomeState value, $Res Function(_HomeState) _then) = __$HomeStateCopyWithImpl;
 @override @useResult
 $Res call({
- bool isLoading, bool isFinished, String? errorText, String? successText
+ bool isLoading, bool isFinished, bool hideAmount, String? errorText, String? successText
 });
 
 
@@ -264,10 +266,11 @@ class __$HomeStateCopyWithImpl<$Res>
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? isLoading = null,Object? isFinished = null,Object? errorText = freezed,Object? successText = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? isLoading = null,Object? isFinished = null,Object? hideAmount = null,Object? errorText = freezed,Object? successText = freezed,}) {
   return _then(_HomeState(
 isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
 as bool,isFinished: null == isFinished ? _self.isFinished : isFinished // ignore: cast_nullable_to_non_nullable
+as bool,hideAmount: null == hideAmount ? _self.hideAmount : hideAmount // ignore: cast_nullable_to_non_nullable
 as bool,errorText: freezed == errorText ? _self.errorText : errorText // ignore: cast_nullable_to_non_nullable
 as String?,successText: freezed == successText ? _self.successText : successText // ignore: cast_nullable_to_non_nullable
 as String?,

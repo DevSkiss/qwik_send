@@ -7,6 +7,8 @@ import 'package:quick_send/core/services/cached_service.dart';
 import 'package:quick_send/core/services/dio_service.dart';
 import 'package:quick_send/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:quick_send/features/auth/domain/repository/auth_repository.dart';
+import 'package:quick_send/features/transaction/data/repositories/transaction_repository_impl.dart';
+import 'package:quick_send/features/transaction/domain/repository/transaction_repository.dart';
 
 final locator = GetIt.instance;
 
@@ -17,9 +19,11 @@ Future<void> init({required AppConfig config}) async {
     ..registerLazySingleton<CachedService>(CachedServiceImpl.new)
     ..registerLazySingleton<AppRouter>(AppRouter.new)
     ..registerLazySingleton<FlutterSecureStorage>(FlutterSecureStorage.new)
-    // Datasource
-    ..registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl());
-  // Repository
+    // Repository
+    ..registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl())
+    ..registerLazySingleton<TransactionRepository>(
+      () => TransactionRepositoryImpl(),
+    );
 
   await locator.allReady();
 }

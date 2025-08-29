@@ -20,7 +20,7 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final data = await ds.login(email: email, password: password);
       final auth = AuthModelDto.fromJson(data);
-      await cache.cacheUserData(UserModelDto(id: auth.id));
+      await cache.cacheUserData(UserModelDto(id: auth.user?.id));
       await cache.cacheToken(auth.accessToken ?? '');
       return Right(data);
     } catch (e) {
@@ -38,7 +38,7 @@ class AuthRepositoryImpl implements AuthRepository {
       final data = await ds.signup(email: email, password: password);
       final auth = AuthModelDto.fromJson(data);
 
-      await cache.cacheUserData(UserModelDto(id: auth.id));
+      await cache.cacheUserData(UserModelDto(id: auth.user?.id));
       await cache.cacheToken(auth.accessToken ?? '');
       return Right(data);
     } catch (e) {

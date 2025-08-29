@@ -1,14 +1,14 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'home_state.freezed.dart';
+part 'layout_state.freezed.dart';
 
 @freezed
-abstract class HomeState with _$HomeState {
-  factory HomeState({
+abstract class LayoutState with _$LayoutState {
+  factory LayoutState({
     @Default(false) bool isLoading,
     @Default(false) bool isFinished,
-    @Default(false) bool hideAmount,
+    @Default(0) int currentIndex,
     String? errorText,
     String? successText,
-  }) = _HomeState;
+  }) = _LayoutState;
 }

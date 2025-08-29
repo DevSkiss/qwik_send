@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:quick_send/features/auth/presentation/screens/auth_screen.dart';
 import 'package:quick_send/features/home/presentation/screens/home_screen.dart';
 import 'package:quick_send/features/layout/presentation/screens/layout.dart';
+import 'package:quick_send/features/send_money/presentation/screens/send_money.dart';
+import 'package:quick_send/features/transaction/presentation/screens/transaction_screen.dart';
 
 part 'app_router.gr.dart';
 
@@ -16,7 +18,11 @@ class AppRouter extends RootStackRouter {
     AutoRoute(
       page: LayoutRoute.page,
       path: '/layout',
-      children: [AutoRoute(page: HomeRoute.page, path: 'home', initial: true)],
+      children: [
+        AutoRoute(page: HomeRoute.page, path: 'home', initial: true),
+        AutoRoute(page: SendMoneyRoute.page, path: 'send'),
+        AutoRoute(page: TransactionRoute.page, path: 'transaction'),
+      ],
     ),
   ];
 

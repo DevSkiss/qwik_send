@@ -11,6 +11,7 @@ class TransactionModelDto {
     this.receiver,
     this.amount,
     this.date,
+    this.senderId,
   });
 
   factory TransactionModelDto.fromJson(Map<String, dynamic> json) =>
@@ -23,12 +24,15 @@ class TransactionModelDto {
   @JsonKey(name: 'sender')
   final UserModelDto? sender;
 
+  @JsonKey(name: 'sender_id')
+  final String? senderId;
+
   @JsonKey(name: 'receiver')
   final UserModelDto? receiver;
 
   @JsonKey(name: 'amount')
   final double? amount;
 
-  @JsonKey(name: 'date')
-  final DateTime? date;
+  @JsonKey(name: 'created_at')
+  final String? date;
 }

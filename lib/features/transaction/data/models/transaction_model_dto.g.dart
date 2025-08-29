@@ -16,9 +16,8 @@ TransactionModelDto _$TransactionModelDtoFromJson(Map<String, dynamic> json) =>
           ? null
           : UserModelDto.fromJson(json['receiver'] as Map<String, dynamic>),
       amount: (json['amount'] as num?)?.toDouble(),
-      date: json['date'] == null
-          ? null
-          : DateTime.parse(json['date'] as String),
+      date: json['created_at'] as String?,
+      senderId: json['sender_id'] as String?,
     );
 
 Map<String, dynamic> _$TransactionModelDtoToJson(
@@ -26,7 +25,8 @@ Map<String, dynamic> _$TransactionModelDtoToJson(
 ) => <String, dynamic>{
   'id': instance.id,
   'sender': instance.sender,
+  'sender_id': instance.senderId,
   'receiver': instance.receiver,
   'amount': instance.amount,
-  'date': instance.date?.toIso8601String(),
+  'created_at': instance.date,
 };

@@ -7,6 +7,7 @@ import 'package:quick_send/core/router/app_router.dart';
 import 'package:quick_send/core/services/cached_service.dart';
 import 'package:quick_send/core/services/di/dependency_injector.dart';
 import 'package:quick_send/features/auth/data/sources/auth_datasource.dart';
+import 'package:quick_send/features/transaction/data/sources/transaction_ds.dart';
 import 'package:quick_send/shared/constants/logger.dart';
 
 class DioService {
@@ -22,6 +23,7 @@ class DioService {
   final AppRouter appRouter = locator<AppRouter>();
 
   late AuthDatasource authClient;
+  late TransactionDatasource transactionDatasource;
 
   void initDio() {
     dio = Dio();
@@ -56,7 +58,7 @@ class DioService {
           }
 
           options.contentType = 'application/json; charset=utf-8';
-
+          logger.i(options.path);
           return handler.next(options);
         },
         onResponse: (response, handler) async {
@@ -88,5 +90,6 @@ class DioService {
     );
 
     authClient = AuthDatasource(dio, baseUrl: config.apiUrl);
+    transactionDatasource = TransactionDatasource(dio, baseUrl: config.apiUrl);
   }
 }

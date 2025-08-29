@@ -57,3 +57,35 @@ class LayoutRoute extends PageRouteInfo<void> {
     },
   );
 }
+
+/// generated route for
+/// [SendMoneyScreen]
+class SendMoneyRoute extends PageRouteInfo<void> {
+  const SendMoneyRoute({List<PageRouteInfo>? children})
+    : super(SendMoneyRoute.name, initialChildren: children);
+
+  static const String name = 'SendMoneyRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SendMoneyScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [TransactionScreen]
+class TransactionRoute extends PageRouteInfo<void> {
+  const TransactionRoute({List<PageRouteInfo>? children})
+    : super(TransactionRoute.name, initialChildren: children);
+
+  static const String name = 'TransactionRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const TransactionScreen();
+    },
+  );
+}
