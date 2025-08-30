@@ -34,7 +34,9 @@ _\*Quick Send works on iOS, Android, Web, and Windows._
 To run all unit and widget tests use the following command:
 
 ```sh
-$flutter test
+# Runnnig Test
+$ flutter test
+
 ```
 
 ---
