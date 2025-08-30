@@ -37,7 +37,7 @@ class _LayoutViewState extends State<LayoutView> {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: Text('Quick Send'),
+            title: Text('Qwik Send'),
             actions: [
               ElevatedButton(
                 onPressed: () {
