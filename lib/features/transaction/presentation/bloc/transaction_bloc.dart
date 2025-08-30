@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quick_send/core/services/cached_service.dart';
 import 'package:quick_send/core/services/di/dependency_injector.dart';
@@ -19,6 +21,7 @@ class TransactionBloc extends Cubit<TransactionState> {
     final user = await cache.getCacheUserData();
     if (user != null) {
       emit(state.copyWith(isLoading: true));
+      log('user id ${user.id}');
       final result = await txn.getAllTransactions(senderId: user.id ?? '');
       result.fold(
         (failure) {

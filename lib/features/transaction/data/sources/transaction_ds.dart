@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:dio/dio.dart' hide Headers;
 import 'package:quick_send/shared/constants/url_constants.dart';
 import 'package:retrofit/retrofit.dart';
@@ -18,5 +17,5 @@ abstract class TransactionDatasource {
 
   @GET(KUrl.getAllTransaction)
   @Headers({'Content-Type': 'application/json', 'accept': 'application/json'})
-  Future getAllTransaction({@QueryParam('sender_id') required String senderId});
+  Future getAllTransaction({@Query('sender_id') required String senderId});
 }

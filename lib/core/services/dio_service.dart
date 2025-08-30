@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:quick_send/app/app_config.dart';
@@ -44,7 +42,6 @@ class DioService {
     dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-          log('gets here?');
           String? token = await cachedService.getToken();
 
           if (config.apikey != null) {
@@ -58,11 +55,10 @@ class DioService {
           }
 
           options.contentType = 'application/json; charset=utf-8';
-          logger.i(options.path);
+
           return handler.next(options);
         },
         onResponse: (response, handler) async {
-          logger.w(response);
           return handler.next(response);
         },
         onError: (DioException e, handler) {

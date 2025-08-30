@@ -44,7 +44,7 @@ class _TransactionDatasource implements TransactionDatasource {
   @override
   Future<dynamic> getAllTransaction({required String senderId}) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'sender_id': senderId};
     final _headers = <String, dynamic>{
       r'Content-Type': 'application/json',
       r'accept': 'application/json',

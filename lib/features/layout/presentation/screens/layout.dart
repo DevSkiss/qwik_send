@@ -65,7 +65,10 @@ class _LayoutViewState extends State<LayoutView> {
             items: [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
               BottomNavigationBarItem(icon: Icon(Icons.send), label: 'Send'),
-              BottomNavigationBarItem(icon: Icon(Icons.send), label: 'Track'),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.send),
+                label: 'Transactions',
+              ),
             ],
           ),
         );
