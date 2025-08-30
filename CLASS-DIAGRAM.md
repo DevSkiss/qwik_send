@@ -167,11 +167,8 @@ classDiagram
     TransactionModelDto --> UserModelDto : contains sender/receiver
 
     %% Cross-Feature Dependencies
-    AuthBloc -.-> HomeBloc : session flow
-    HomeBloc -.-> SendMoneyBloc : navigation flow
-    SendMoneyBloc -.-> TransactionBloc : transaction creation
-    TransactionBloc -.-> SendMoneyBloc : transaction history
-
+    %% Note: These represent logical flow relationships, not direct code dependencies
+    
     %% Shared Dependencies
     AuthBloc --> CachedService : session management
     SendMoneyBloc --> UserModelDto : user validation
@@ -197,6 +194,8 @@ classDiagram
 2. **Home → Send Money**: User initiates money transfer from home screen
 3. **Send Money → Transaction**: Money transfer creates transaction records
 4. **Transaction → Send Money**: Transaction history provides feedback for future transfers
+
+**Note**: The class diagram above shows structural relationships between classes. For behavioral flow between features, refer to the sequence diagrams which better illustrate the temporal interactions and user journeys.
 
 ### Key Design Patterns
 
