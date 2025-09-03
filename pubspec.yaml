@@ -36,7 +36,7 @@ dev_dependencies:
   retrofit_generator: ^10.0.2
   injectable_generator: ^2.7.0
   json_serializable: ^6.9.5
-  build_runner: ^2.4.15
+  build_runner: ^2.7.1
 
 flutter:
   assets:
