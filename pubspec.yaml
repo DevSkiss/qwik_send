@@ -33,7 +33,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.4
-  retrofit_generator: ^10.0.2
+  retrofit_generator: ^10.0.4
   injectable_generator: ^2.7.0
   json_serializable: ^6.9.5
   build_runner: ^2.4.15
