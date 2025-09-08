@@ -35,7 +35,7 @@ dev_dependencies:
   mocktail: ^1.0.4
   retrofit_generator: ^10.0.2
   injectable_generator: ^2.7.0
-  json_serializable: ^6.9.5
+  json_serializable: ^6.11.1
   build_runner: ^2.4.15
 
 flutter:
